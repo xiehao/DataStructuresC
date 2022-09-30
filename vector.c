@@ -52,7 +52,7 @@ static bool shrink_vector(Vector *v) {
     return reallocate_vector(v, (v->capacity + 1) >> 1);
 }
 
-bool insert_vector(Vector *v, int k, DataType d) {
+bool insert_vector_by_index(Vector *v, int k, DataType d) {
     if (wrong_insert_index(v, k) ||
         (v->size >= v->capacity && !grow_vector(v))) {
         return false;
@@ -77,7 +77,7 @@ bool remove_vector(Vector *v, int k) {
 }
 
 bool push_back_vector(Vector *v, DataType d) {
-    return insert_vector(v, v->size, d);
+    return insert_vector_by_index(v, v->size, d);
 }
 
 bool pop_back_vector(Vector *v) { return remove_vector(v, v->size - 1); }
@@ -108,7 +108,7 @@ void demo_vector() {
         push_back_vector(v, i);
         print(v);
     }
-    insert_vector(v, -1, -1);
+    insert_vector_by_index(v, -1, -1);
     print(v);
     remove_vector(v, 2);
     print(v);
