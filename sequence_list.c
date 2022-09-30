@@ -158,7 +158,8 @@ SequenceList *merge_sequence_lists(SequenceList *sa, SequenceList *sb) {
     SequenceList *s = create_sequence_list();
     int ka = 0, kb = 0, k = 0;
     for (; ka <= sa->last && kb <= sb->last && !full_sequence_list(s); ++k) {
-        int d = sa->data[ka] < sb->data[kb] ? sa->data[ka++] : sb->data[kb++];
+        DataType d =
+            sa->data[ka] < sb->data[kb] ? sa->data[ka++] : sb->data[kb++];
         insert_sequence_list(s, k, d);
     }
     for (; ka <= sa->last && !full_sequence_list(s); ++k) {
@@ -175,7 +176,8 @@ SequenceList *merge_sequence_lists_descendingly(SequenceList *sa,
     SequenceList *s = create_sequence_list();
     int ka = sa->last, kb = sb->last, k = 0;
     for (; ka >= 0 && kb >= 0 && !full_sequence_list(s); ++k) {
-        int d = sa->data[ka] < sb->data[kb] ? sb->data[kb--] : sa->data[ka--];
+        DataType d =
+            sa->data[ka] < sb->data[kb] ? sb->data[kb--] : sa->data[ka--];
         insert_sequence_list(s, k, d);
     }
     for (; ka >= 0 && !full_sequence_list(s); ++k) {
