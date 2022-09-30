@@ -27,8 +27,15 @@ LinkedNode *search_linked_by_data(LinkedList *s, DataType d) {
     return p;
 }
 
-LinkedNode *insert_after_linked_node(LinkedNode *p, DataType d) {
-    LinkedNode *n = create_linked_node(d);
+/**
+ * @brief Attach a node right after a node
+ * The nodes are reconnected after attaching
+ * @param p the node before the attached one
+ * @param n the node to be attached
+ * @return LinkedNode* the node to be attached
+ */
+static LinkedNode *attach_after_node(LinkedNode *p, LinkedNode *n) {
+    assert(p && n);
     n->next = p->next;
     p->next = n;
     return n;
@@ -38,31 +45,40 @@ bool insert_after_linked_by_index(LinkedList *s, int k, DataType d) {
     LinkedNode *p = search_linked_by_index(s, k);
     if (!p) {
         printf("Wrong insert index!\n");
-        return p;
+        return false;
     }
-    return insert_after_linked_node(p, d);
+    LinkedNode *n = create_linked_node(d);
+    return n && attach_after_node(p, n);
 }
 
 bool insert_before_linked_by_index(LinkedList *s, int k, DataType d) {
     return insert_after_linked_by_index(s, k - 1, d);
 }
 
-void remove_after_linked_node(LinkedNode *q) {
+/**
+ * @brief Detach the node right after a node
+ * The nodes are reconnected after detaching
+ * @param q the node before the detached one
+ * @return LinkedNode* the detached node
+ */
+static LinkedNode *detach_after_node(LinkedNode *q) {
+    assert(q && q->next);
     LinkedNode *p = q->next;
     q->next = p->next;
-    free(p);
+    return p;
 }
 
-bool remove_linked_by_index(LinkedList *s, int k, DataType *p) {
+bool remove_linked_by_index(LinkedList *s, int k, DataType *d) {
     LinkedNode *q = search_linked_by_index(s, k - 1);
     if (!q || !q->next) {
         printf("Wrong remove index!\n");
         return false;
     }
-    if (p) {
-        *p = q->next->data;
+    LinkedNode *p = detach_after_node(q);
+    if (d) {
+        *d = p->data;
     }
-    remove_after_linked_node(q);
+    free(p);
     return true;
 }
 
