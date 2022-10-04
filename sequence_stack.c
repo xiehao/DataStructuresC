@@ -42,25 +42,31 @@ static void print(SequenceStack *s) {
     }
     printf("(");
     for (int i = 0; i <= s->_->last; ++i) {
-        printf("%d, ", s->_->data[i]);
+        printf("%d, ", DATAVALUE(int, s->_->data[i]));
     }
     printf(")\n");
 }
 
+static bool equals_int(DataType lhs, DataType rhs) {
+    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
+}
+
 void demo_sequence_stack() {
+    equals = equals_int;
+    int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     SequenceStack *s = create_sequence_stack();
     print(s);
     DataType d;
     for (int i = 0; i < 10; ++i) {
-        push_sequence_stack(s, i);
+        push_sequence_stack(s, array + i);
         print(s);
         top_sequence_stack(s, &d);
-        printf("top: %d\n", d);
+        printf("top: %d\n", DATAVALUE(int, d));
     }
     for (int i = 0; i < 10; ++i) {
         pop_sequence_stack(s, &d);
         print(s);
-        printf("pop: %d\n", d);
+        printf("pop: %d\n", DATAVALUE(int, d));
     }
     destroy_sequence_stack(s);
 }

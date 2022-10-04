@@ -72,14 +72,14 @@ bool append_sequence_list(SequenceList *s, DataType d) {
 
 int search_sequence_list(SequenceList *s, DataType d) {
     int k = 0;
-    for (; k <= s->last && s->data[k] != d; ++k)
+    for (; k <= s->last && !equals(s->data[k], d); ++k)
         ;
     return s->last < k ? -1 : k;
 }
 
 int search_sequence_list_reversly(SequenceList *s, DataType d) {
     int k = s->last;
-    for (; k >= 0 && s->data[k] != d; --k)
+    for (; k >= 0 && !equals(s->data[k], d); --k)
         ;
     return k;
 }
@@ -90,53 +90,60 @@ static void print(SequenceList *s) {
     }
     printf("(");
     for (int i = 0; i <= s->last; ++i) {
-        printf("%d, ", s->data[i]);
+        printf("%d, ", DATAVALUE(int, s->data[i]));
     }
     printf(")\n");
 }
 
+static bool equals_int(DataType lhs, DataType rhs) {
+    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
+}
+
 void demo_sequence_list() {
+    equals = equals_int;
     SequenceList *s = create_sequence_list();
     print(s);
 
-    append_sequence_list(s, 1);
-    append_sequence_list(s, 2);
-    append_sequence_list(s, 3);
-    append_sequence_list(s, 4);
+    int array[] = {1, 2, 3, 4, 5, 6};
+
+    append_sequence_list(s, array + 0);
+    append_sequence_list(s, array + 1);
+    append_sequence_list(s, array + 2);
+    append_sequence_list(s, array + 3);
     print(s);
 
-    printf("Index of 1: %d\n", search_sequence_list(s, 1));
-    printf("Index of 2: %d\n", search_sequence_list(s, 2));
-    printf("Index of 3: %d\n", search_sequence_list(s, 3));
-    printf("Index of 4: %d\n", search_sequence_list(s, 4));
-    printf("Index of 5: %d\n", search_sequence_list(s, 5));
+    printf("Index of 1: %d\n", search_sequence_list(s, array + 0));
+    printf("Index of 2: %d\n", search_sequence_list(s, array + 1));
+    printf("Index of 3: %d\n", search_sequence_list(s, array + 2));
+    printf("Index of 4: %d\n", search_sequence_list(s, array + 3));
+    printf("Index of 5: %d\n", search_sequence_list(s, array + 4));
 
-    printf("Index of 1: %d\n", search_sequence_list_reversly(s, 1));
-    printf("Index of 2: %d\n", search_sequence_list_reversly(s, 2));
-    printf("Index of 3: %d\n", search_sequence_list_reversly(s, 3));
-    printf("Index of 4: %d\n", search_sequence_list_reversly(s, 4));
-    printf("Index of 5: %d\n", search_sequence_list_reversly(s, 5));
+    printf("Index of 1: %d\n", search_sequence_list_reversly(s, array + 0));
+    printf("Index of 2: %d\n", search_sequence_list_reversly(s, array + 1));
+    printf("Index of 3: %d\n", search_sequence_list_reversly(s, array + 2));
+    printf("Index of 4: %d\n", search_sequence_list_reversly(s, array + 3));
+    printf("Index of 5: %d\n", search_sequence_list_reversly(s, array + 4));
 
     DataType d;
     remove_sequence_list(s, 3, &d);
-    printf("removed: %d\n", d);
+    printf("removed: %d\n", DATAVALUE(int, d) );
     print(s);
     remove_sequence_list(s, 3, &d);
-    printf("removed: %d\n", d);
+    printf("removed: %d\n", DATAVALUE(int, d));
     print(s);
 
     SequenceList *sa = create_sequence_list();
     SequenceList *sb = create_sequence_list();
 
-    append_sequence_list(sa, 1);
-    append_sequence_list(sa, 3);
-    append_sequence_list(sa, 5);
-    append_sequence_list(sa, 6);
+    append_sequence_list(sa, array + 0);
+    append_sequence_list(sa, array + 2);
+    append_sequence_list(sa, array + 4);
+    append_sequence_list(sa, array + 5);
     printf("sa: ");
     print(sa);
-    append_sequence_list(sb, 2);
-    append_sequence_list(sb, 4);
-    append_sequence_list(sb, 6);
+    append_sequence_list(sb, array + 1);
+    append_sequence_list(sb, array + 3);
+    append_sequence_list(sb, array + 5);
     printf("sb: ");
     print(sb);
 

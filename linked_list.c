@@ -9,7 +9,7 @@ LinkedNode *create_linked_node(DataType data) {
 
 LinkedList *create_linked_list() {
     LinkedList *s = malloc(sizeof(LinkedList));
-    s->head = create_linked_node(0);
+    s->head = create_linked_node(NULL);
     return s;
 }
 
@@ -22,7 +22,7 @@ LinkedNode *search_linked_by_index(LinkedList *s, int k) {
 
 LinkedNode *search_linked_by_data(LinkedList *s, DataType d) {
     LinkedNode *p = s->head->next;
-    for (; p != NULL && p->data != d; p = p->next)
+    for (; p != NULL && !equals(p->data, d); p = p->next)
         ;
     return p;
 }
@@ -124,27 +124,34 @@ static void print(LinkedList *s) {
     printf("(");
     LinkedNode *p = s->head->next;
     for (; p != NULL; p = p->next) {
-        printf("%d, ", p->data);
+        printf("%d, ", DATAVALUE(int, p->data));
     }
     printf(")\n");
 }
 
+static bool equals_int(DataType lhs, DataType rhs) {
+    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
+}
+
 void demo_linked_list() {
+    equals = equals_int;
+    int array[] = {1, 2, 3, 4, 5};
+
     LinkedList *s = create_linked_list();
     print(s);
     printf("length: %d\n", get_linked_list_length(s));
 
-    add_front_linked_list(s, 1);
+    add_front_linked_list(s, array + 0);
     printf("length: %d\n", get_linked_list_length(s));
-    add_front_linked_list(s, 2);
+    add_front_linked_list(s, array + 1);
     print(s);
     printf("length: %d\n", get_linked_list_length(s));
 
-    printf("%p\n", search_linked_by_data(s, 1));
-    printf("%p\n", search_linked_by_data(s, 2));
-    printf("%p\n", search_linked_by_data(s, 3));
+    printf("%p\n", search_linked_by_data(s, array + 0));
+    printf("%p\n", search_linked_by_data(s, array + 1));
+    printf("%p\n", search_linked_by_data(s, array + 2));
 
-    insert_after_linked_by_index(s, 3, 3);
+    insert_after_linked_by_index(s, 3, array + 2);
     printf("length: %d\n", get_linked_list_length(s));
 
     remove_front_linked_list(s, NULL);

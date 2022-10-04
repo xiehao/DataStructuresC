@@ -84,7 +84,7 @@ bool pop_back_vector(Vector *v) { return remove_vector(v, v->size - 1); }
 
 int search_vector(Vector *v, DataType d) {
     int k = v->size - 1;
-    for (; k >= 0 && v->data[k] != d; --k)
+    for (; k >= 0 && !equals(v->data[k], d); --k)
         ;
     return k;
 }
@@ -95,25 +95,31 @@ static void print(Vector *v) {
     }
     printf("(");
     for (int i = 0; i < v->size; ++i) {
-        printf("%d, ", v->data[i]);
+        printf("%d, ", DATAVALUE(int, v->data[i]));
     }
     printf(")\n");
     printf("size: %d, capacity: %d\n", v->size, v->capacity);
 }
 
+static bool equals_int(DataType lhs, DataType rhs) {
+    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
+}
+
 void demo_vector() {
+    equals = equals_int;
+    int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -1};
     Vector *v = create_vector(1);
     print(v);
     for (int i = 0; i < 10; ++i) {
-        push_back_vector(v, i);
+        push_back_vector(v, array + i);
         print(v);
     }
-    insert_vector_by_index(v, -1, -1);
+    insert_vector_by_index(v, -1, array + 10);
     print(v);
-    remove_vector(v, 2);
+    remove_vector(v, array + 2);
     print(v);
-    printf("Index of 3 is %d\n", search_vector(v, 3));
-    printf("Index of 10 is %d\n", search_vector(v, 10));
+    printf("Index of 3 is %d\n", search_vector(v, array + 3));
+    printf("Index of 10 is %d\n", search_vector(v, array + 10));
     for (int i = 0; i < 10; ++i) {
         pop_back_vector(v);
         print(v);
