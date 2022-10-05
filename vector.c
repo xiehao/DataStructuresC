@@ -116,7 +116,7 @@ void demo_vector() {
     }
     insert_vector_by_index(v, -1, array + 10);
     print(v);
-    remove_vector(v, array + 2);
+    remove_vector(v, 2);
     print(v);
     printf("Index of 3 is %d\n", search_vector(v, array + 3));
     printf("Index of 10 is %d\n", search_vector(v, array + 10));
