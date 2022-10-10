@@ -9,9 +9,10 @@ add_executable(dsa-c main.c
     sequence_stack.c
     linked_stack.c
     maze.c
+    sequence_queue.c
 )
 
 set_target_properties(dsa-c PROPERTIES
-    C_STANDARD 11
+    C_STANDARD 99
     C_STANDARD_REQUIRED ON
 )
