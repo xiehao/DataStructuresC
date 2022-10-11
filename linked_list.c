@@ -1,15 +1,19 @@
 #include "linked_list.h"
 
-LinkedNode *create_linked_node(DataType data) {
+LinkedNode *create_linked_node(DataType d) {
     LinkedNode *n = malloc(sizeof(LinkedNode));
-    n->data = data;
-    n->next = NULL;
+    if (n) {
+        n->data = d;
+        n->next = NULL;
+    }
     return n;
 }
 
 LinkedList *create_linked_list() {
     LinkedList *s = malloc(sizeof(LinkedList));
-    s->head = create_linked_node(NULL);
+    if (s) {
+        s->head = create_linked_node(NULL);
+    }
     return s;
 }
 
@@ -27,14 +31,7 @@ LinkedNode *search_linked_by_data(LinkedList *s, DataType d) {
     return p;
 }
 
-/**
- * @brief Attach a node right after a node
- * The nodes are reconnected after attaching
- * @param p the node before the attached one
- * @param n the node to be attached
- * @return LinkedNode* the node to be attached
- */
-static LinkedNode *attach_after_node(LinkedNode *p, LinkedNode *n) {
+LinkedNode *attach_after_node(LinkedNode *p, LinkedNode *n) {
     assert(p && n);
     n->next = p->next;
     p->next = n;
@@ -55,13 +52,7 @@ bool insert_before_linked_by_index(LinkedList *s, int k, DataType d) {
     return insert_after_linked_by_index(s, k - 1, d);
 }
 
-/**
- * @brief Detach the node right after a node
- * The nodes are reconnected after detaching
- * @param q the node before the detached one
- * @return LinkedNode* the detached node
- */
-static LinkedNode *detach_after_node(LinkedNode *q) {
+LinkedNode *detach_after_node(LinkedNode *q) {
     assert(q && q->next);
     LinkedNode *p = q->next;
     q->next = p->next;

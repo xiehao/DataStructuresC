@@ -10,6 +10,7 @@ add_executable(dsa-c main.c
     linked_stack.c
     maze.c
     sequence_queue.c
+    linked_queue.c
 )
 
 set_target_properties(dsa-c PROPERTIES

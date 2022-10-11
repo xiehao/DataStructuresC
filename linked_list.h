@@ -14,12 +14,20 @@ typedef struct LinkedNode {
 
 /**
  * @brief The linked list structure
- * The list contains at list a head node by default, making it easy to do some
+ * The list contains at least a head node by default, making it easy to do some
  * operations, e.g. removal, consistently.
  */
 typedef struct {
     LinkedNode *head;
 } LinkedList;
+
+/**
+ * @brief Create a linked node
+ * 
+ * @param d the value in the created node
+ * @return LinkedNode* the created linked node
+ */
+extern LinkedNode *create_linked_node(DataType d);
 
 /**
  * @brief Create a linked list
@@ -61,6 +69,23 @@ extern LinkedNode *search_linked_by_index(LinkedList *s, int k);
  * @return LinkedNode* the result linked node, NULL if not found
  */
 extern LinkedNode *search_linked_by_data(LinkedList *s, DataType d);
+
+/**
+ * @brief Attach a node right after a node
+ * The nodes are reconnected after attaching
+ * @param p the node before the attached one
+ * @param n the node to be attached
+ * @return LinkedNode* the node to be attached
+ */
+LinkedNode *attach_after_node(LinkedNode *p, LinkedNode *n);
+
+/**
+ * @brief Detach the node right after a node
+ * The nodes are reconnected after detaching
+ * @param q the node before the detached one
+ * @return LinkedNode* the detached node
+ */
+LinkedNode *detach_after_node(LinkedNode *q);
 
 /**
  * @brief Insert a value into a linked list BEFORE an indexed node

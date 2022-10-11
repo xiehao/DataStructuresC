@@ -57,7 +57,7 @@ void demo_linked_stack() {
     print(s);
     DataType d;
     for (int i = 0; i < 10; ++i) {
-        push_linked_stack(s, array+i);
+        push_linked_stack(s, array + i);
         print(s);
         top_linked_stack(s, &d);
         printf("top: %d\n", DATAVALUE(int, d));

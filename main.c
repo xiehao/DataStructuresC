@@ -7,6 +7,7 @@
 #include "linked_stack.h"
 #include "maze.h"
 #include "sequence_queue.h"
+#include "linked_queue.h"
 
 int main(int argc, char **argv) {
     // printf("=============sequence list================\n");
@@ -21,6 +22,8 @@ int main(int argc, char **argv) {
     // demo_linked_stack();
     // printf("-------------------maze-------------------\n");
     // solve_maze();
-    printf("=============sequence queue===============\n");
-    demo_sequence_queue();
+    // printf("=============sequence queue===============\n");
+    // demo_sequence_queue();
+    printf("=============linked queue===============\n");
+    demo_linked_queue();
 }
