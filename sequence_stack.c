@@ -47,12 +47,7 @@ static void print(SequenceStack *s) {
     printf(")\n");
 }
 
-static bool equals_int(DataType lhs, DataType rhs) {
-    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
-}
-
 void demo_sequence_stack() {
-    equals = equals_int;
     int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     SequenceStack *s = create_sequence_stack();
     print(s);

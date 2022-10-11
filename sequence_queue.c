@@ -68,12 +68,7 @@ static void print(SequenceQueue *s) {
     printf("]\n");
 }
 
-static bool equals_int(DataType lhs, DataType rhs) {
-    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
-}
-
 void demo_sequence_queue() {
-    equals = equals_int;
     SequenceQueue *s = create_sequence_queue();
     print(s);
     int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};

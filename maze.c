@@ -98,7 +98,7 @@ static bool is_blocked_next(Cell *c) {
  * @return true have the same info
  * @return false have different info
  */
-static bool equals_cell(DataType lhs, DataType rhs) {
+static bool equal_cells(DataType lhs, DataType rhs) {
     assert(lhs && rhs);
     Cell *left = (Cell *)lhs;
     Cell *right = (Cell *)rhs;
@@ -147,7 +147,7 @@ static SequenceStack *find_path(Cell *s, Cell *e) {
                 s = create_next_cell(s);
                 mark_visited(s);
                 d = 0; // reset the counter
-                if (equals(s, e)) { // arrived the end
+                if (equal(s, e)) { // arrived the end
                     push_sequence_stack(path, e);
                     return path; // found the path
                 }
@@ -159,7 +159,7 @@ static SequenceStack *find_path(Cell *s, Cell *e) {
 }
 
 void solve_maze() {
-    equals = equals_cell;
+    equal = equal_cells;
     Cell *s = create_cell(2, 1, 0); // starting cell
     Cell *e = create_cell(7, 8, 0); // ending cell
     SequenceStack *path = find_path(s, e);

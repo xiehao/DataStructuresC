@@ -46,12 +46,7 @@ static void print(LinkedStack *s) {
     printf(")\n");
 }
 
-static bool equals_int(DataType lhs, DataType rhs) {
-    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
-}
-
 void demo_linked_stack() {
-    equals = equals_int;
     int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     LinkedStack *s = create_linked_stack();
     print(s);

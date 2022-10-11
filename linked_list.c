@@ -26,7 +26,7 @@ LinkedNode *search_linked_by_index(LinkedList *s, int k) {
 
 LinkedNode *search_linked_by_data(LinkedList *s, DataType d) {
     LinkedNode *p = s->head->next;
-    for (; p != NULL && !equals(p->data, d); p = p->next)
+    for (; p != NULL && !equal(p->data, d); p = p->next)
         ;
     return p;
 }
@@ -120,12 +120,7 @@ static void print(LinkedList *s) {
     printf(")\n");
 }
 
-static bool equals_int(DataType lhs, DataType rhs) {
-    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
-}
-
 void demo_linked_list() {
-    equals = equals_int;
     int array[] = {1, 2, 3, 4, 5};
 
     LinkedList *s = create_linked_list();

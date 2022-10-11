@@ -84,7 +84,7 @@ bool pop_back_vector(Vector *v) { return remove_vector(v, v->size - 1); }
 
 int search_vector(Vector *v, DataType d) {
     int k = v->size - 1;
-    for (; k >= 0 && !equals(v->data[k], d); --k)
+    for (; k >= 0 && !equal(v->data[k], d); --k)
         ;
     return k;
 }
@@ -101,12 +101,7 @@ static void print(Vector *v) {
     printf("size: %d, capacity: %d\n", v->size, v->capacity);
 }
 
-static bool equals_int(DataType lhs, DataType rhs) {
-    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
-}
-
 void demo_vector() {
-    equals = equals_int;
     int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -1};
     Vector *v = create_vector(1);
     print(v);

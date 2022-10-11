@@ -18,12 +18,22 @@ typedef bool (*EqualType)(DataType lhs, DataType rhs);
  * @brief Check if two DataType values are equal.
  * 
  */
-extern EqualType equals;
+extern EqualType equal;
 
 /**
  * @brief Get the value where the DataType value (void *) points to
  *
  */
 #define DATAVALUE(type, data) *(type *)(data)
+
+/**
+ * @brief Check if two ints are equal
+ * 
+ * @param lhs left int
+ * @param rhs right int
+ * @return true equal
+ * @return false not equal
+ */
+bool equal_ints(DataType lhs, DataType rhs);
 
 #endif // COMMON_H

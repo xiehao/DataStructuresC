@@ -52,12 +52,7 @@ static void print(LinkedQueue *s) {
     printf("]\n");
 }
 
-static bool equals_int(DataType lhs, DataType rhs) {
-    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
-}
-
 void demo_linked_queue() {
-    equals = equals_int;
     int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     LinkedQueue *s = create_linked_queue();
     print(s);

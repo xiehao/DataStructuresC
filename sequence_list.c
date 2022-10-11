@@ -72,14 +72,14 @@ bool append_sequence_list(SequenceList *s, DataType d) {
 
 int search_sequence_list(SequenceList *s, DataType d) {
     int k = 0;
-    for (; k <= s->last && !equals(s->data[k], d); ++k)
+    for (; k <= s->last && !equal(s->data[k], d); ++k)
         ;
     return s->last < k ? -1 : k;
 }
 
 int search_sequence_list_reversly(SequenceList *s, DataType d) {
     int k = s->last;
-    for (; k >= 0 && !equals(s->data[k], d); --k)
+    for (; k >= 0 && !equal(s->data[k], d); --k)
         ;
     return k;
 }
@@ -95,12 +95,7 @@ static void print(SequenceList *s) {
     printf(")\n");
 }
 
-static bool equals_int(DataType lhs, DataType rhs) {
-    return DATAVALUE(int, lhs) == DATAVALUE(int, rhs);
-}
-
 void demo_sequence_list() {
-    equals = equals_int;
     SequenceList *s = create_sequence_list();
     print(s);
 
