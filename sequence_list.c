@@ -34,7 +34,9 @@ bool full_sequence_list(SequenceList *s) {
 
 SequenceList *create_sequence_list() {
     SequenceList *s = malloc(sizeof(SequenceList));
-    s->last = -1;
+    if (s) {
+        s->last = -1;
+    }
     return s;
 }
 
@@ -121,7 +123,7 @@ void demo_sequence_list() {
 
     DataType d;
     remove_sequence_list(s, 3, &d);
-    printf("removed: %d\n", DATAVALUE(int, d) );
+    printf("removed: %d\n", DATAVALUE(int, d));
     print(s);
     remove_sequence_list(s, 3, &d);
     printf("removed: %d\n", DATAVALUE(int, d));
