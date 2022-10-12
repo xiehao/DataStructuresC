@@ -16,6 +16,8 @@ void destroy_linked_queue(LinkedQueue *s) {
     }
 }
 
+bool empty_linked_queue(LinkedQueue *s) { return !s || !s->front->next; }
+
 bool push_linked_queue(LinkedQueue *s, DataType d) {
     if (!s) {
         return false;
@@ -25,7 +27,7 @@ bool push_linked_queue(LinkedQueue *s, DataType d) {
 }
 
 bool pop_linked_queue(LinkedQueue *s, DataType *d) {
-    if (!s || !s->front->next) {
+    if (empty_linked_queue(s)) {
         return false;
     }
     LinkedNode *p = detach_after_node(s->front);

@@ -30,6 +30,15 @@ extern LinkedQueue *create_linked_queue();
 extern void destroy_linked_queue(LinkedQueue *s);
 
 /**
+ * @brief Check if a linked queue is empty
+ * 
+ * @param s the linked queue
+ * @return true is empty
+ * @return false is not empty
+ */
+extern bool empty_linked_queue(LinkedQueue *s);
+
+/**
  * @brief Push an element into the rear of a linked queue
  * 
  * @param s the linked queue
