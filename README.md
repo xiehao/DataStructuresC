@@ -17,4 +17,4 @@ This repo is about some toy code from the course DSA, including:
 - simple algorithms
   - TBD...
   
- The code is written in C with C11 supported, and is organized by CMake.
+ The code is written in C with C99 supported, and is organized by CMake.
