@@ -8,6 +8,8 @@ This repo is about some toy code from the course DSA, including:
   - linked list
   - sequence stack
   - linked stack
+  - sequence queue
+  - linked queue
 - semi-linear structures
   - TBD...
 - non-linear structures
