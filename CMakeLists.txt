@@ -8,6 +8,7 @@ add_executable(dsa-c main.c
     vector.c
     sequence_stack.c
     linked_stack.c
+    hanoi.c
     maze.c
     sequence_queue.c
     linked_queue.c
