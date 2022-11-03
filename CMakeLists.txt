@@ -8,10 +8,12 @@ add_executable(dsa-c main.c
     vector.c
     sequence_stack.c
     linked_stack.c
+    stack.c
     hanoi.c
     maze.c
     sequence_queue.c
     linked_queue.c
+    binary_tree.c
 )
 
 set_target_properties(dsa-c PROPERTIES
