@@ -65,9 +65,12 @@ bool insert_vector_by_index(Vector *v, int k, DataType d) {
     return true;
 }
 
-bool remove_vector(Vector *v, int k) {
+bool remove_vector_by_index(Vector *v, int k, DataType *d) {
     if (wrong_remove_index(v, k)) {
         return false;
+    }
+    if (d) {
+        *d = v->data[k];
     }
     for (int i = k; i < v->size; ++i) {
         v->data[i] = v->data[i + 1];
@@ -80,7 +83,9 @@ bool push_back_vector(Vector *v, DataType d) {
     return insert_vector_by_index(v, v->size, d);
 }
 
-bool pop_back_vector(Vector *v) { return remove_vector(v, v->size - 1); }
+bool pop_back_vector(Vector *v, DataType *d) {
+    return remove_vector_by_index(v, v->size - 1, d);
+}
 
 int search_vector(Vector *v, DataType d) {
     int k = v->size - 1;
@@ -111,12 +116,12 @@ void demo_vector() {
     }
     insert_vector_by_index(v, -1, array + 10);
     print(v);
-    remove_vector(v, 2);
+    remove_vector_by_index(v, 2, NULL);
     print(v);
     printf("Index of 3 is %d\n", search_vector(v, array + 3));
     printf("Index of 10 is %d\n", search_vector(v, array + 10));
     for (int i = 0; i < 10; ++i) {
-        pop_back_vector(v);
+        pop_back_vector(v, NULL);
         print(v);
     }
     destroy_vector(v);
