@@ -2,6 +2,12 @@
 
 #include <memory.h>
 
+struct _vector {
+    DataType *data;
+    int size;
+    int capacity;
+};
+
 static bool wrong_insert_index(Vector *v, int k) {
     bool wrong = k < 0 || k > v->size;
     if (wrong) {
@@ -34,7 +40,7 @@ void destroy_vector(Vector *v) {
 static bool reallocate_vector(Vector *v, int c) {
     DataType *new_data = malloc(sizeof(DataType) * c);
     if (!new_data) {
-        printf("Memory allocation failed when growing vector!\n");
+        printf("Memory allocation failed when growing or shrinking vector!\n");
         return false;
     }
     memcpy(new_data, v->data, sizeof(DataType) * v->size);
@@ -93,6 +99,10 @@ int search_vector(Vector *v, DataType d) {
         ;
     return k;
 }
+
+int size_of_vector(Vector *v) { return v->size; }
+
+bool is_vector_empty(Vector *v) { return v->size; }
 
 static void print(Vector *v) {
     if (!v) {

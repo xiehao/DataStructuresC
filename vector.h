@@ -8,11 +8,7 @@
  * A sequence list which can dynamically grow and shrink according to the number
  * of elements
  */
-typedef struct {
-    DataType *data;
-    int size;
-    int capacity;
-} Vector;
+typedef struct _vector Vector;
 
 /**
  * @brief Create a vector
@@ -81,6 +77,9 @@ extern bool pop_back_vector(Vector *v, DataType *d);
  * @return int the index of matched element, -1 if not found
  */
 extern int search_vector(Vector *v, DataType d);
+
+extern int size_of_vector(Vector *v);
+extern bool is_vector_empty(Vector *v);
 
 /**
  * @brief Demo for the vector
