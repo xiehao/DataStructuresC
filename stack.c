@@ -33,6 +33,20 @@ bool pop_stack(Stack *s, DataType *d) {
     return pop_back_vector(s->_, d);
 }
 
+bool top_stack(Stack *s, DataType *d) {
+    if (!s) {
+        return false;
+    }
+    return get_vector_value_at(s->_, size_of_vector(s->_) - 1, d);
+}
+
+Stack *make_stack_empty(Stack *s) {
+    if (s) {
+        make_vector_empty(s->_);
+    }
+    return s;
+}
+
 bool is_stack_empty(Stack *s) { return !s || is_vector_empty(s->_); }
 
 void demo_stack() {

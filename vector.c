@@ -33,7 +33,9 @@ Vector *create_vector(int c) {
 }
 
 void destroy_vector(Vector *v) {
-    free(v->data);
+    if (v) {
+        free(v->data);
+    }
     free(v);
 }
 
@@ -100,9 +102,42 @@ int search_vector(Vector *v, DataType d) {
     return k;
 }
 
+bool get_vector_value_at(Vector *v, int k, DataType *d) {
+    if (!v || !d) {
+        printf("Null vector or data");
+        return false;
+    }
+    if (k < 0 || k >= v->size) {
+        printf("Index out of range!\n");
+        return false;
+    }
+    *d = v->data[k];
+    return true;
+}
+
+bool set_vector_value_at(Vector *v, int k, DataType d) {
+    if (!v) {
+        printf("Null vector or data");
+        return false;
+    }
+    if (k < 0 || k >= v->size) {
+        printf("Index out of range!\n");
+        return false;
+    }
+    v->data[k] = d;
+    return true;
+}
+
 int size_of_vector(Vector *v) { return v->size; }
 
-bool is_vector_empty(Vector *v) { return v->size; }
+bool is_vector_empty(Vector *v) { return !v->size; }
+
+Vector *make_vector_empty(Vector *v) {
+    if (v) {
+        v->size = 0;
+    }
+    return v;
+}
 
 static void print(Vector *v) {
     if (!v) {

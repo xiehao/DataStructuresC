@@ -78,8 +78,13 @@ extern bool pop_back_vector(Vector *v, DataType *d);
  */
 extern int search_vector(Vector *v, DataType d);
 
+extern bool get_vector_value_at(Vector *v, int k, DataType *d);
+extern bool set_vector_value_at(Vector *v, int k, DataType d);
+
 extern int size_of_vector(Vector *v);
 extern bool is_vector_empty(Vector *v);
+
+extern Vector *make_vector_empty(Vector *v);
 
 /**
  * @brief Demo for the vector

@@ -15,6 +15,8 @@ extern bool pop_stack(Stack *s, DataType *d);
 
 extern bool top_stack(Stack *s, DataType *d);
 
+extern Stack *make_stack_empty(Stack *s);
+
 extern bool is_stack_empty(Stack *s);
 
 extern void demo_stack();
