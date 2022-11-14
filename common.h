@@ -15,6 +15,16 @@ typedef void *DataType;
 typedef bool (*EqualType)(DataType lhs, DataType rhs);
 
 /**
+ * @brief Type of function to compare two DataType values and returns:
+ * -1 for lhs < rhs
+ * 0 for lhs == rhs
+ * 1 otherwise
+ */
+typedef int (*CompareType)(DataType *lhs, DataType *rhs);
+
+typedef void (*VisitType)(DataType);
+
+/**
  * @brief Check if two DataType values are equal.
  * 
  */
@@ -24,7 +34,7 @@ extern EqualType equal;
  * @brief Get the value where the DataType value (void *) points to
  *
  */
-#define DATAVALUE(type, data) *(type *)(data)
+#define DATAVALUE(type, data) (*(type *)(data))
 
 /**
  * @brief Check if two ints are equal

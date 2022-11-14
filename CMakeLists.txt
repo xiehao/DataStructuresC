@@ -13,7 +13,10 @@ add_executable(dsa-c main.c
     maze.c
     sequence_queue.c
     linked_queue.c
+    tree.c
     binary_tree.c
+    binary_search_tree.c
+    huffman.c
 )
 
 set_target_properties(dsa-c PROPERTIES

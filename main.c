@@ -10,7 +10,9 @@
 #include "maze.h"
 #include "sequence_queue.h"
 #include "linked_queue.h"
+#include "tree.h"
 #include "binary_tree.h"
+#include "huffman.h"
 
 int main(int argc, char **argv) {
     // printf("=============sequence list================\n");
@@ -23,16 +25,20 @@ int main(int argc, char **argv) {
     // demo_sequence_stack();
     // printf("==============linked stack================\n");
     // demo_linked_stack();
-    printf("==================stack====================\n");
-    demo_stack();
+    // printf("==================stack====================\n");
+    // demo_stack();
     // printf("-------------------hanoi------------------\n");
     // solve_hanoi();
     // printf("-------------------maze-------------------\n");
     // solve_maze();
     // printf("=============sequence queue===============\n");
     // demo_sequence_queue();
-    // printf("=============linked queue===============\n");
+    // printf("==============linked queue================\n");
     // demo_linked_queue();
-    // printf("=============binary tree===============\n");
+    // printf("==================tree====================\n");
+    // demo_tree();
+    // printf("===============binary tree================\n");
     // demo_binary_tree();
+    printf("==================huffman==================\n");
+    demo_huffman();
 }
