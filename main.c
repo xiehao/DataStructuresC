@@ -13,6 +13,7 @@
 #include "tree.h"
 #include "binary_tree.h"
 #include "huffman.h"
+#include "graph.h"
 
 int main(int argc, char **argv) {
     // printf("=============sequence list================\n");
@@ -39,6 +40,8 @@ int main(int argc, char **argv) {
     // demo_tree();
     // printf("===============binary tree================\n");
     // demo_binary_tree();
-    printf("==================huffman==================\n");
-    demo_huffman();
+    // printf("==================huffman==================\n");
+    // demo_huffman();
+    printf("==================graph==================\n");
+    demo_graph();
 }

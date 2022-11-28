@@ -17,6 +17,7 @@ add_executable(dsa-c main.c
     binary_tree.c
     binary_search_tree.c
     huffman.c
+    graph.c
 )
 
 set_target_properties(dsa-c PROPERTIES
