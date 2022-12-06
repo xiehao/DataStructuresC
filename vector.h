@@ -15,7 +15,7 @@ typedef struct _vector Vector;
  *
  * @return Vector* the created vector
  */
-extern Vector *create_vector();
+extern Vector *create_vector(int);
 
 /**
  * @brief Destroy a vector

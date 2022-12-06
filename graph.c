@@ -32,7 +32,7 @@ Vertex *create_vertex(DataType d, int i) {
     if (v) {
         v->data = d;
         v->index = i;
-        v->neighbors = create_vector();
+        v->neighbors = create_vector(1);
         v->visited = false;
     }
     return v;
@@ -109,8 +109,8 @@ void destroy_adjacency_matrix(AdjacencyMatrix *m) {
 AdjacencyList *create_adjacency_list() {
     AdjacencyList *list = malloc(sizeof(AdjacencyList));
     if (list) {
-        list->vertices = create_vector();
-        list->edges = create_vector();
+        list->vertices = create_vector(1);
+        list->edges = create_vector(1);
     }
     return list;
 }

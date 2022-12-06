@@ -7,7 +7,7 @@ struct _stack {
 Stack *create_stack() {
     Stack *s = malloc(sizeof(Stack));
     if (s) {
-        s->_ = create_vector();
+        s->_ = create_vector(1);
     }
     return s;
 }
@@ -57,7 +57,7 @@ void demo_stack() {
     }
     DataType d;
     printf("(");
-    while (is_stack_empty(s)) {
+    while (!is_stack_empty(s)) {
         if (pop_stack(s, &d)) {
             printf("%d, ", DATAVALUE(int, d));
         }

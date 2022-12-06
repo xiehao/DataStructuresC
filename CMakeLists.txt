@@ -15,7 +15,7 @@ add_executable(dsa-c main.c
     linked_queue.c
     tree.c
     binary_tree.c
-    binary_search_tree.c
+    # binary_search_tree.c
     huffman.c
     graph.c
 )

@@ -16,32 +16,32 @@
 #include "graph.h"
 
 int main(int argc, char **argv) {
-    // printf("=============sequence list================\n");
-    // demo_sequence_list();
-    // printf("==============linked list=================\n");
-    // demo_linked_list();
-    // printf("=================vector===================\n");
-    // demo_vector();
-    // printf("=============sequence stack===============\n");
-    // demo_sequence_stack();
-    // printf("==============linked stack================\n");
-    // demo_linked_stack();
-    // printf("==================stack====================\n");
-    // demo_stack();
-    // printf("-------------------hanoi------------------\n");
-    // solve_hanoi();
-    // printf("-------------------maze-------------------\n");
-    // solve_maze();
-    // printf("=============sequence queue===============\n");
-    // demo_sequence_queue();
-    // printf("==============linked queue================\n");
-    // demo_linked_queue();
-    // printf("==================tree====================\n");
-    // demo_tree();
-    // printf("===============binary tree================\n");
-    // demo_binary_tree();
-    // printf("==================huffman==================\n");
-    // demo_huffman();
+    printf("=============sequence list================\n");
+    demo_sequence_list();
+    printf("==============linked list=================\n");
+    demo_linked_list();
+    printf("=================vector===================\n");
+    demo_vector();
+    printf("=============sequence stack===============\n");
+    demo_sequence_stack();
+    printf("==============linked stack================\n");
+    demo_linked_stack();
+    printf("==================stack====================\n");
+    demo_stack();
+    printf("-------------------hanoi------------------\n");
+    solve_hanoi();
+    printf("-------------------maze-------------------\n");
+    solve_maze();
+    printf("=============sequence queue===============\n");
+    demo_sequence_queue();
+    printf("==============linked queue================\n");
+    demo_linked_queue();
+    printf("==================tree====================\n");
+    demo_tree();
+    printf("===============binary tree================\n");
+    demo_binary_tree();
+    printf("==================huffman==================\n");
+    demo_huffman();
     printf("==================graph==================\n");
     demo_graph();
 }
