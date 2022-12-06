@@ -13,9 +13,10 @@ typedef struct _vector Vector;
 /**
  * @brief Create a vector
  *
+ * @param int the initial capacity
  * @return Vector* the created vector
  */
-extern Vector *create_vector(int);
+extern Vector *create_vector(int c);
 
 /**
  * @brief Destroy a vector
@@ -78,12 +79,51 @@ extern bool pop_back_vector(Vector *v, DataType *d);
  */
 extern int search_vector(Vector *v, DataType d);
 
+/**
+ * @brief Get the vector value at object
+ * 
+ * @param v the vector
+ * @param k the index of element to get
+ * @param d pointed to the element to get
+ * @return true success to get
+ * @return false failed to get (not found)
+ */
 extern bool get_vector_value_at(Vector *v, int k, DataType *d);
+
+/**
+ * @brief Set the vector value at object
+ * 
+ * @param v the vector
+ * @param k the index of element to set
+ * @param d the new element
+ * @return true success to set
+ * @return false failed to set (not found)
+ */
 extern bool set_vector_value_at(Vector *v, int k, DataType d);
 
+/**
+ * @brief The number of elements of a vector
+ * 
+ * @param v the vector
+ * @return int the number of elements
+ */
 extern int size_of_vector(Vector *v);
+
+/**
+ * @brief Check if a vector is empty
+ * 
+ * @param v the vector
+ * @return true is empty
+ * @return false is not empty
+ */
 extern bool is_vector_empty(Vector *v);
 
+/**
+ * @brief Make a vector empty by erase all elements in it
+ * 
+ * @param v the vector
+ * @return Vector* the empty vector
+ */
 extern Vector *make_vector_empty(Vector *v);
 
 /**
