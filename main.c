@@ -14,6 +14,7 @@
 #include "binary_tree.h"
 #include "huffman.h"
 #include "graph.h"
+#include "sorting.h"
 
 int main(int argc, char **argv) {
     printf("=============sequence list================\n");
@@ -44,4 +45,6 @@ int main(int argc, char **argv) {
     demo_huffman();
     printf("==================graph==================\n");
     demo_graph();
+    printf("==================sorting==================\n");
+    demo_sorting();
 }

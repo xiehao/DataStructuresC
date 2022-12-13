@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * @brief Treat DataType as a void *, which can be cast into any type you want
