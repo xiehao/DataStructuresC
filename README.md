@@ -11,10 +11,10 @@ This repo is about some toy code from the course DSA, including:
   - sequence queue
   - linked queue
 - semi-linear structures
-  - TBD...
+  - binary tree
 - non-linear structures
-  - TBD...
+  - graph
 - simple algorithms
-  - TBD...
+  - sorting
   
  The code is written in C with C99 supported, and is organized by CMake.
