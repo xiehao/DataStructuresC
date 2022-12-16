@@ -2,10 +2,10 @@
 #define COMMON_H
 
 #include <assert.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 
 /**
  * @brief Treat DataType as a void *, which can be cast into any type you want
@@ -37,7 +37,7 @@ typedef void (*VisitType)(DataType);
 
 /**
  * @brief Check if two DataType values are equal.
- * 
+ *
  */
 extern EqualType equal;
 
@@ -49,12 +49,40 @@ extern EqualType equal;
 
 /**
  * @brief Check if two ints are equal
- * 
+ *
  * @param lhs left int
  * @param rhs right int
  * @return true equal
  * @return false not equal
  */
 bool equal_ints(DataType lhs, DataType rhs);
+
+/**
+ * @brief Swap two data
+ *
+ * @param lhs the address of the left hand side
+ * @param rhs the address of the right hand side
+ */
+extern void swap_data(DataType *lhs, DataType *rhs);
+
+/**
+ * @brief Return the address of the larger one of two data
+ *
+ * @param lhs the address of the left one
+ * @param rhs the address of the right one
+ * @param c the comparison function
+ * @return DataType* the address of the larger one
+ */
+extern DataType *larger_of(DataType *lhs, DataType *rhs, CompareType c);
+
+/**
+ * @brief Return the address of the smaller one of two data
+ *
+ * @param lhs the address of the left one
+ * @param rhs the address of the right one
+ * @param c the comparison function
+ * @return DataType* the address of the smaller one
+ */
+extern DataType *smaller_of(DataType *lhs, DataType *rhs, CompareType c);
 
 #endif // COMMON_H
