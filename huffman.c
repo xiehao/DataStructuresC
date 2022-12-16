@@ -93,7 +93,7 @@ struct _node {
 
 static void find_candidates(HuffmanNode *t, int n, int *f, int *s) {
     assert(n > 1);
-    int first_weight = __INT_MAX__, second_weight = __INT_MAX__;
+    int first_weight = INT_MAX, second_weight = INT_MAX;
     for (int i = 0; i < n; ++i) {
         if (-1 == t[i].parent) {
             int weight = t[i].weight;
@@ -117,7 +117,7 @@ HuffmanNode *create_huffman_tree(int w[], int n) {
     int size = 2 * n - 1;
     HuffmanNode *tree = malloc(sizeof(HuffmanNode) * size);
     for (int i = 0; i < size; ++i) {
-        tree[i].weight = __INT_MAX__;
+        tree[i].weight = INT_MAX;
         tree[i].left = tree[i].right = tree[i].parent = -1;
     }
     for (int i = 0; i < n; ++i) {
