@@ -13,6 +13,16 @@
  */
 typedef void *DataType;
 
+/**
+ * @brief The valid data type structure 
+ *
+ * The data is encapsulated and is valid only if it is not NULL
+ */
+typedef struct {
+    DataType data;
+    const bool valid;
+} ValidDataType;
+
 typedef bool (*EqualType)(DataType lhs, DataType rhs);
 
 /**
