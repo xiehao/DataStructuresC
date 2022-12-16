@@ -11,7 +11,7 @@ extern void destroy_stack(Stack *s);
 
 extern bool push_stack(Stack *s, DataType d);
 
-extern bool pop_stack(Stack *s, DataType *d);
+extern ValidDataType pop_stack(Stack *s);
 
 extern ValidDataType top_stack(Stack *s);
 

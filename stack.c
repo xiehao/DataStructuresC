@@ -26,11 +26,9 @@ bool push_stack(Stack *s, DataType d) {
     return push_back_vector(s->_, d);
 }
 
-bool pop_stack(Stack *s, DataType *d) {
-    if (!s) {
-        return false;
-    }
-    return pop_back_vector(s->_, d);
+ValidDataType pop_stack(Stack *s) {
+    assert(s);
+    return pop_back_vector(s->_);
 }
 
 ValidDataType top_stack(Stack *s) {
@@ -55,11 +53,11 @@ void demo_stack() {
     for (int i = 0; i < 10; ++i) {
         push_stack(s, array + i);
     }
-    DataType d;
     printf("(");
     while (!is_stack_empty(s)) {
-        if (pop_stack(s, &d)) {
-            printf("%d, ", DATAVALUE(int, d));
+        ValidDataType data = pop_stack(s);
+        if (data.valid) {
+            printf("%d, ", DATAVALUE(int, data.data));
         }
     }
     printf(")\n");

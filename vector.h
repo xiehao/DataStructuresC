@@ -44,11 +44,9 @@ extern bool insert_vector_by_index(Vector *v, int k, DataType d);
  * after another, the capacity is halved if the size is less than 1/4 capacity
  * @param v the vector
  * @param k the index of element to be removed
- * @param d copy of the element to be removed
- * @return true successfully removed
- * @return false failed (wrong index or shrinking failed)
+ * @return ValidDataType the encapsulated removed element
  */
-extern bool remove_vector_by_index(Vector *v, int k, DataType *d);
+extern ValidDataType remove_vector_by_index(Vector *v, int k);
 
 /**
  * @brief Insert a value at the end of a vector
@@ -64,11 +62,9 @@ extern bool push_back_vector(Vector *v, DataType d);
  * @brief Remove the last element of a vector
  * 
  * @param v the vector
- * @param d copy of the element popped back
- * @return true successfully removed
- * @return false failed (shrinking failed)
+ * @return ValidDataType the encapsulated popped element
  */
-extern bool pop_back_vector(Vector *v, DataType *d);
+extern ValidDataType pop_back_vector(Vector *v);
 
 /**
  * @brief Search a value in a vector

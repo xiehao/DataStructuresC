@@ -272,9 +272,8 @@ void traverse_binary_tree_preorder(BinaryTreeNode *p, VisitType v) {
     if (!buffer) {
         return;
     }
-    DataType d;
     for (; visit_along_left_binary_tree(p, v, &buffer), !is_stack_empty(buffer);
-         pop_stack(buffer, &d), p = d)
+         p = pop_stack(buffer).data)
         ;
     destroy_stack(buffer);
 }
@@ -294,11 +293,9 @@ void traverse_binary_tree_inorder(BinaryTreeNode *p, VisitType v) {
     if (!buffer) {
         return;
     }
-    DataType d;
     for (; go_along_left_binary_tree(p, &buffer), !is_stack_empty(buffer);
          p = p->right) {
-        pop_stack(buffer, &d);
-        p = d;
+        p =pop_stack(buffer).data;
         v(p->data);
     }
     destroy_stack(buffer);

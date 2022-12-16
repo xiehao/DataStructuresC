@@ -80,26 +80,26 @@ bool insert_vector_by_index(Vector *v, int k, DataType d) {
     return true;
 }
 
-bool remove_vector_by_index(Vector *v, int k, DataType *d) {
+ValidDataType remove_vector_by_index(Vector *v, int k) {
     if (wrong_remove_index(v, k)) {
-        return false;
+        return (ValidDataType){.valid = false};
     }
-    if (d) {
-        *d = v->data[k];
-    }
+    ValidDataType result = {.data = v->data[k], .valid = true};
     for (int i = k; i < v->size; ++i) {
         v->data[i] = v->data[i + 1];
     }
-    --v->size;
-    return v->size * 4 > v->capacity || shrink_vector(v);
+    if (--v->size * 4 > v->capacity) {
+        shrink_vector(v);
+    }
+    return result;
 }
 
 bool push_back_vector(Vector *v, DataType d) {
     return insert_vector_by_index(v, v->size, d);
 }
 
-bool pop_back_vector(Vector *v, DataType *d) {
-    return remove_vector_by_index(v, v->size - 1, d);
+ValidDataType pop_back_vector(Vector *v) {
+    return remove_vector_by_index(v, v->size - 1);
 }
 
 int search_vector(Vector *v, DataType d) {
@@ -112,19 +112,6 @@ int search_vector(Vector *v, DataType d) {
 DataType *vector_at(Vector *v, int k) {
     assert(v);
     return index_out_of_range(v, k) ? NULL : v->data + k;
-}
-
-bool set_vector_value_at(Vector *v, int k, DataType d) {
-    if (!v) {
-        printf("Null vector or data");
-        return false;
-    }
-    if (k < 0 || k >= v->size) {
-        printf("Index out of range!\n");
-        return false;
-    }
-    v->data[k] = d;
-    return true;
 }
 
 int size_of_vector(Vector *v) { return v->size; }
@@ -160,12 +147,12 @@ void demo_vector() {
     }
     insert_vector_by_index(v, -1, array + 10);
     print(v);
-    remove_vector_by_index(v, 2, NULL);
+    remove_vector_by_index(v, 2);
     print(v);
     printf("Index of 3 is %d\n", search_vector(v, array + 3));
     printf("Index of 10 is %d\n", search_vector(v, array + 10));
     for (int i = 0; i < 10; ++i) {
-        pop_back_vector(v, NULL);
+        pop_back_vector(v);
         print(v);
     }
     destroy_vector(v);

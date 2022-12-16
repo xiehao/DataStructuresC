@@ -94,10 +94,9 @@ bool push_heap(Heap *h, DataType d) {
 ValidDataType pop_heap(Heap *h) {
     if (!at(h, 0)) return (ValidDataType){.valid = false};
     ValidDataType top = {.data = *at(h, 0), .valid = true};
-    DataType last;
-    pop_back_vector(h->_, &last);
+    ValidDataType last = pop_back_vector(h->_);
     if (size_of_heap(h) > 0) {
-        *at(h, 0) = last;
+        *at(h, 0) = last.data;
         percolate_down(h, 0);
     }
     return top;

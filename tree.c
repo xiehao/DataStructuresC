@@ -63,7 +63,6 @@ static void traverse_tree_preorder_recursively(TreeNode *n, VisitType v) {
 static void visit_along_eldest(TreeNode *n, VisitType v, Stack **s) {
     Stack *buffer = create_stack();
     if (!buffer) return;
-    DataType d;
     for (; n; n = n->eldest_son) {
         v(n->data);
         TreeNode *p = n->eldest_son;
@@ -71,7 +70,7 @@ static void visit_along_eldest(TreeNode *n, VisitType v, Stack **s) {
             for (p = p->sibling; p; push_stack(buffer, p), p = p->sibling)
                 ;
             for (; !is_stack_empty(buffer);
-                 pop_stack(buffer, &d), push_stack(*s, d))
+                 push_stack(*s, pop_stack(buffer).data))
                 ;
         }
     }
