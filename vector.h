@@ -91,15 +91,13 @@ extern int search_vector(Vector *v, DataType d);
 extern bool get_vector_value_at(Vector *v, int k, DataType *d);
 
 /**
- * @brief Set the vector value at object
+ * @brief Get the address of an element of an vector
  * 
  * @param v the vector
- * @param k the index of element to set
- * @param d the new element
- * @return true success to set
- * @return false failed to set (not found)
+ * @param k the index of the element
+ * @return DataType* the address of the element
  */
-extern bool set_vector_value_at(Vector *v, int k, DataType d);
+extern DataType *vector_at(Vector *v, int k);
 
 /**
  * @brief The number of elements of a vector

@@ -8,6 +8,10 @@ struct _vector {
     int capacity;
 };
 
+static bool index_out_of_range(Vector *v, int k) {
+    return k < 0 || k >= v->size;
+}
+
 static bool wrong_insert_index(Vector *v, int k) {
     bool wrong = k < 0 || k > v->size;
     if (wrong) {
@@ -116,6 +120,11 @@ bool get_vector_value_at(Vector *v, int k, DataType *d) {
     }
     *d = v->data[k];
     return true;
+}
+
+DataType *vector_at(Vector *v, int k) {
+    assert(v);
+    return index_out_of_range(v, k) ? NULL : v->data + k;
 }
 
 bool set_vector_value_at(Vector *v, int k, DataType d) {
