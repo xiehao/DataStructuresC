@@ -46,8 +46,7 @@ void destroy_vertex(Vertex *v) {
 }
 
 static Vertex *get_vertex_at(Vector *v, int k) {
-    DataType data;
-    return get_vector_value_at(v, k, &data) ? data : NULL;
+    return *vector_at(v, k);
 }
 
 Edge *create_edge(Vertex *f, Vertex *t, int w) {
@@ -61,8 +60,7 @@ Edge *create_edge(Vertex *f, Vertex *t, int w) {
 }
 
 static Edge *get_edge_at(Vector *v, int k) {
-    DataType data;
-    return get_vector_value_at(v, k, &data) ? data : NULL;
+    return *vector_at(v, k);
 }
 
 static void initiate_vertices(AdjacencyMatrix *m) {
@@ -117,17 +115,14 @@ AdjacencyList *create_adjacency_list() {
 
 void destroy_adjacency_list(AdjacencyList *l) {
     if (l) {
-        DataType data;
         int n_vertices = size_of_vector(l->vertices);
         for (int i = 0; i < n_vertices; ++i) {
-            get_vector_value_at(l->vertices, i, &data);
-            destroy_vertex((Vertex *)data);
+            destroy_vertex((Vertex *)*vector_at(l->vertices, i));
         }
         destroy_vector(l->vertices);
         int n_edges = size_of_vector(l->edges);
         for (int i = 0; i < n_edges; ++i) {
-            get_vector_value_at(l->edges, i, &data);
-            free((Edge *)data);
+            free((Edge *)*vector_at(l->edges, i));
         }
         destroy_vector(l->edges);
     }

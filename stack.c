@@ -33,11 +33,11 @@ bool pop_stack(Stack *s, DataType *d) {
     return pop_back_vector(s->_, d);
 }
 
-bool top_stack(Stack *s, DataType *d) {
-    if (!s) {
-        return false;
-    }
-    return get_vector_value_at(s->_, size_of_vector(s->_) - 1, d);
+ValidDataType top_stack(Stack *s) {
+    assert(s);
+    DataType *p = vector_at(s->_, size_of_vector(s->_) - 1);
+    return p ? (ValidDataType){.data = *p, .valid = true}
+             : (ValidDataType){.valid = false};
 }
 
 Stack *make_stack_empty(Stack *s) {

@@ -80,17 +80,6 @@ extern bool pop_back_vector(Vector *v, DataType *d);
 extern int search_vector(Vector *v, DataType d);
 
 /**
- * @brief Get the vector value at object
- * 
- * @param v the vector
- * @param k the index of element to get
- * @param d pointed to the element to get
- * @return true success to get
- * @return false failed to get (not found)
- */
-extern bool get_vector_value_at(Vector *v, int k, DataType *d);
-
-/**
  * @brief Get the address of an element of an vector
  * 
  * @param v the vector

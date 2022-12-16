@@ -109,19 +109,6 @@ int search_vector(Vector *v, DataType d) {
     return k;
 }
 
-bool get_vector_value_at(Vector *v, int k, DataType *d) {
-    if (!v || !d) {
-        printf("Null vector or data");
-        return false;
-    }
-    if (k < 0 || k >= v->size) {
-        printf("Index out of range!\n");
-        return false;
-    }
-    *d = v->data[k];
-    return true;
-}
-
 DataType *vector_at(Vector *v, int k) {
     assert(v);
     return index_out_of_range(v, k) ? NULL : v->data + k;
