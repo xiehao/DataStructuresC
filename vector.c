@@ -88,7 +88,7 @@ ValidDataType remove_vector_by_index(Vector *v, int k) {
     for (int i = k; i < v->size; ++i) {
         v->data[i] = v->data[i + 1];
     }
-    if (--v->size * 4 > v->capacity) {
+    if (--v->size * 4 < v->capacity) {
         shrink_vector(v);
     }
     return result;
