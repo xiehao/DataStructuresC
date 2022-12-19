@@ -40,13 +40,6 @@ typedef int (*CompareType)(DataType lhs, DataType rhs);
 typedef void (*VisitType)(DataType);
 
 /**
- * @brief Type of function to calculate the key of an element, used in sorting
- * and searching
- *
- */
-typedef DataType (*KeyType)(DataType);
-
-/**
  * @brief Get the value where the DataType value (void *) points to
  *
  */
