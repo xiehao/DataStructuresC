@@ -20,6 +20,7 @@ add_executable(dsa-c main.c
     huffman.c
     graph.c
     sorting.c
+    searching.c
 )
 
 set_target_properties(dsa-c PROPERTIES

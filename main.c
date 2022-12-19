@@ -16,6 +16,7 @@
 #include "graph.h"
 #include "sorting.h"
 #include "heap.h"
+#include "searching.h"
 
 int main(int argc, char **argv) {
     printf("=============sequence list================\n");
@@ -46,8 +47,10 @@ int main(int argc, char **argv) {
     demo_huffman();
     printf("==================graph==================\n");
     demo_graph();
-    printf("==================sorting==================\n");
-    demo_sorting();
     printf("==================heap==================\n");
     demo_heap();
+    printf("==================sorting==================\n");
+    demo_sorting();
+    printf("==================searching==================\n");
+    demo_searching();
 }

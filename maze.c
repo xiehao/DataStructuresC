@@ -136,7 +136,7 @@ static void print_map() {
  * @param e the ending cell
  * @return SequenceStack* the path, NULL if no path is found
  */
-static SequenceStack *find_path(Cell *s, Cell *e) {
+static SequenceStack *find_path(Cell *s, Cell *e, EqualType c) {
     SequenceStack *path = create_sequence_stack();
     push_sequence_stack(path, s);
     while (!empty_sequence_stack(path)) {
@@ -147,7 +147,7 @@ static SequenceStack *find_path(Cell *s, Cell *e) {
                 s = create_next_cell(s);
                 mark_visited(s);
                 d = 0; // reset the counter
-                if (equal(s, e)) { // arrived the end
+                if (c(s, e)) { // arrived the end
                     push_sequence_stack(path, e);
                     return path; // found the path
                 }
@@ -159,10 +159,9 @@ static SequenceStack *find_path(Cell *s, Cell *e) {
 }
 
 void solve_maze() {
-    equal = equal_cells;
     Cell *s = create_cell(2, 1, 0); // starting cell
     Cell *e = create_cell(7, 8, 0); // ending cell
-    SequenceStack *path = find_path(s, e);
+    SequenceStack *path = find_path(s, e, equal_cells);
     print_path(path);
     print_map();
     destroy_sequence_stack(path);

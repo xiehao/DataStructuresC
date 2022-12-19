@@ -27,19 +27,24 @@ typedef bool (*EqualType)(DataType lhs, DataType rhs);
 
 /**
  * @brief Type of function to compare two DataType values and returns:
- * -1 for lhs < rhs
- * 0 for lhs == rhs
+ * -1 if lhs < rhs
+ * 0 if lhs == rhs
  * 1 otherwise
  */
-typedef int (*CompareType)(DataType *lhs, DataType *rhs);
+typedef int (*CompareType)(DataType lhs, DataType rhs);
 
+/**
+ * @brief Type of function to visit a node or vertex in a read-only way
+ * 
+ */
 typedef void (*VisitType)(DataType);
 
 /**
- * @brief Check if two DataType values are equal.
+ * @brief Type of function to calculate the key of an element, used in sorting
+ * and searching
  *
  */
-extern EqualType equal;
+typedef DataType (*KeyType)(DataType);
 
 /**
  * @brief Get the value where the DataType value (void *) points to
@@ -56,6 +61,15 @@ extern EqualType equal;
  * @return false not equal
  */
 bool equal_ints(DataType lhs, DataType rhs);
+
+/**
+ * @brief Compare two ints
+ *
+ * @param lhs left int
+ * @param rhs right int
+ * @return int -1 if lhs < rhs; 1 if lhs > rhs; 0 if lhs == rhs
+ */
+int compare_ints(DataType lhs, DataType rhs);
 
 /**
  * @brief Swap two data

@@ -59,18 +59,20 @@ extern bool remove_sequence_list(SequenceList *s, int k, DataType *p);
  *
  * @param s the sequence list
  * @param d the value to be searched
+ * @param e the function to check if two elements are equal
  * @return int the index of element matching the value, -1 if not found
  */
-extern int search_sequence_list(SequenceList *s, DataType d);
+extern int search_sequence_list(SequenceList *s, DataType d, EqualType e);
 
 /**
  * @brief Search an element in a sequence list by value
  * The elements are traversed reversely, easier to implement
  * @param s the sequence list
  * @param d the value to be searched
+ * @param e the function to check if two elements are equal
  * @return int the index of element matching the value, -1 if not found
  */
-extern int search_sequence_list_reversely(SequenceList *s, DataType d);
+extern int search_sequence_list_reversely(SequenceList *s, DataType d, EqualType e);
 
 /**
  * @brief Insert an element at the end of a sequence list

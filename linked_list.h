@@ -66,9 +66,10 @@ extern LinkedNode *search_linked_by_index(LinkedList *s, int k);
  *
  * @param s the linked list
  * @param d the value to match
+ * @param e the function to check if two elements are equal
  * @return LinkedNode* the result linked node, NULL if not found
  */
-extern LinkedNode *search_linked_by_data(LinkedList *s, DataType d);
+extern LinkedNode *search_linked_by_data(LinkedList *s, DataType d, EqualType e);
 
 /**
  * @brief Attach a node right after a node

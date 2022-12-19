@@ -108,12 +108,6 @@ ValidDataType top_heap(Heap *h) {
              : (ValidDataType){.valid = false};
 }
 
-static int compare_ints(DataType *lhs, DataType *rhs) {
-    int left = DATAVALUE(int, *lhs);
-    int right = DATAVALUE(int, *rhs);
-    return left < right ? -1 : (left > right ? 1 : 0);
-}
-
 void demo_heap() {
     int n = 6;
     int raw_data[] = {21, 25, 22, 10, 25, 18};

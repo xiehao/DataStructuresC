@@ -102,9 +102,9 @@ ValidDataType pop_back_vector(Vector *v) {
     return remove_vector_by_index(v, v->size - 1);
 }
 
-int search_vector(Vector *v, DataType d) {
+int search_vector(Vector *v, DataType d, EqualType e) {
     int k = v->size - 1;
-    for (; k >= 0 && !equal(v->data[k], d); --k)
+    for (; k >= 0 && !e(v->data[k], d); --k)
         ;
     return k;
 }
@@ -149,8 +149,8 @@ void demo_vector() {
     print(v);
     remove_vector_by_index(v, 2);
     print(v);
-    printf("Index of 3 is %d\n", search_vector(v, array + 3));
-    printf("Index of 10 is %d\n", search_vector(v, array + 10));
+    printf("Index of 3 is %d\n", search_vector(v, array + 3, equal_ints));
+    printf("Index of 10 is %d\n", search_vector(v, array + 10, equal_ints));
     for (int i = 0; i < 10; ++i) {
         pop_back_vector(v);
         print(v);

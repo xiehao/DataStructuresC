@@ -24,9 +24,9 @@ LinkedNode *search_linked_by_index(LinkedList *s, int k) {
     return p;
 }
 
-LinkedNode *search_linked_by_data(LinkedList *s, DataType d) {
+LinkedNode *search_linked_by_data(LinkedList *s, DataType d, EqualType e) {
     LinkedNode *p = s->head->next;
-    for (; p != NULL && !equal(p->data, d); p = p->next)
+    for (; p != NULL && !e(p->data, d); p = p->next)
         ;
     return p;
 }
@@ -133,9 +133,9 @@ void demo_linked_list() {
     print(s);
     printf("length: %d\n", get_linked_list_length(s));
 
-    printf("%p\n", search_linked_by_data(s, array + 0));
-    printf("%p\n", search_linked_by_data(s, array + 1));
-    printf("%p\n", search_linked_by_data(s, array + 2));
+    printf("%p\n", search_linked_by_data(s, array + 0, equal_ints));
+    printf("%p\n", search_linked_by_data(s, array + 1, equal_ints));
+    printf("%p\n", search_linked_by_data(s, array + 2, equal_ints));
 
     insert_after_linked_by_index(s, 3, array + 2);
     printf("length: %d\n", get_linked_list_length(s));

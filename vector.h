@@ -71,9 +71,10 @@ extern ValidDataType pop_back_vector(Vector *v);
  * 
  * @param v the vector
  * @param d the value to be searched
+ * @param e the function to check if two elements are equal
  * @return int the index of matched element, -1 if not found
  */
-extern int search_vector(Vector *v, DataType d);
+extern int search_vector(Vector *v, DataType d, EqualType e);
 
 /**
  * @brief Get the address of an element of an vector
