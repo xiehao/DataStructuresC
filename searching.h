@@ -5,7 +5,7 @@
 
 /**
  * @brief Search an element in a vector linearly
- * 
+ *
  * @param v the vector
  * @param d the query data
  * @param e the function to check if two elements are equal
@@ -14,12 +14,12 @@
 extern int linear_search(Vector *v, DataType d, EqualType e);
 
 /**
- * @brief Search an element in an ORDERED vector using binary partition 
- * 
+ * @brief Search an element in an ORDERED vector using binary partition
+ *
  * @param v he vector
  * @param d the query data
  * @param c the function to cpmpare two elements
- * @return int 
+ * @return int
  */
 extern int binary_search(Vector *v, DataType d, CompareType c);
 

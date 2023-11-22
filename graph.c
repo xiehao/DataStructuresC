@@ -45,9 +45,7 @@ void destroy_vertex(Vertex *v) {
     free(v);
 }
 
-static Vertex *get_vertex_at(Vector *v, int k) {
-    return *vector_at(v, k);
-}
+static Vertex *get_vertex_at(Vector *v, int k) { return *vector_at(v, k); }
 
 Edge *create_edge(Vertex *f, Vertex *t, int w) {
     Edge *e = malloc(sizeof(Edge));
@@ -59,9 +57,7 @@ Edge *create_edge(Vertex *f, Vertex *t, int w) {
     return e;
 }
 
-static Edge *get_edge_at(Vector *v, int k) {
-    return *vector_at(v, k);
-}
+static Edge *get_edge_at(Vector *v, int k) { return *vector_at(v, k); }
 
 static void initiate_vertices(AdjacencyMatrix *m) {
     int n = m->size;

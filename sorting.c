@@ -36,7 +36,7 @@ void insertion_sort(DataType *s, int f, int t, CompareType c) {
 /**
  * @brief Select the most wanted element (the minimum) in a pass of bubble
  * sort, by swapping the unordered pairs one by one.
- * 
+ *
  * @param s the sequence
  * @param f the from index
  * @param t the to index

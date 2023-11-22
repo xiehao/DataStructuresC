@@ -146,7 +146,7 @@ static SequenceStack *find_path(Cell *s, Cell *e, EqualType c) {
                 push_sequence_stack(path, s);
                 s = create_next_cell(s);
                 mark_visited(s);
-                d = 0; // reset the counter
+                d = 0;         // reset the counter
                 if (c(s, e)) { // arrived the end
                     push_sequence_stack(path, e);
                     return path; // found the path

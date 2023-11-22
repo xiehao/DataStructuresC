@@ -72,11 +72,12 @@ extern int search_sequence_list(SequenceList *s, DataType d, EqualType e);
  * @param e the function to check if two elements are equal
  * @return int the index of element matching the value, -1 if not found
  */
-extern int search_sequence_list_reversely(SequenceList *s, DataType d, EqualType e);
+extern int search_sequence_list_reversely(SequenceList *s, DataType d,
+                                          EqualType e);
 
 /**
  * @brief Insert an element at the end of a sequence list
- * 
+ *
  * @param s the sequence list
  * @param d the value to be inserted
  * @return true successfully inserted
@@ -86,7 +87,7 @@ extern bool append_sequence_list(SequenceList *s, DataType d);
 
 /**
  * @brief Check if a sequence list is empty
- * 
+ *
  * @param s the sequence list
  * @return true is empty
  * @return false is not empty
@@ -95,7 +96,7 @@ extern bool empty_sequence_list(SequenceList *s);
 
 /**
  * @brief Check if a sequence list is full
- * 
+ *
  * @param s the sequence list
  * @return true is full
  * @return false is not full
@@ -104,7 +105,7 @@ extern bool full_sequence_list(SequenceList *s);
 
 /**
  * @brief Demo of the sequence list
- * 
+ *
  */
 extern void demo_sequence_list();
 

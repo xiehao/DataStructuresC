@@ -5,7 +5,7 @@
 
 /**
  * @brief The node of a linked list
- * 
+ *
  */
 typedef struct LinkedNode {
     DataType data;
@@ -23,7 +23,7 @@ typedef struct {
 
 /**
  * @brief Create a linked node
- * 
+ *
  * @param d the value in the created node
  * @return LinkedNode* the created linked node
  */
@@ -69,7 +69,8 @@ extern LinkedNode *search_linked_by_index(LinkedList *s, int k);
  * @param e the function to check if two elements are equal
  * @return LinkedNode* the result linked node, NULL if not found
  */
-extern LinkedNode *search_linked_by_data(LinkedList *s, DataType d, EqualType e);
+extern LinkedNode *search_linked_by_data(LinkedList *s, DataType d,
+                                         EqualType e);
 
 /**
  * @brief Attach a node right after a node

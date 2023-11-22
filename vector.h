@@ -50,7 +50,7 @@ extern ValidDataType remove_vector_by_index(Vector *v, int k);
 
 /**
  * @brief Insert a value at the end of a vector
- * 
+ *
  * @param v the vector
  * @param d the value to be inserted
  * @return true successfully inserted
@@ -60,7 +60,7 @@ extern bool push_back_vector(Vector *v, DataType d);
 
 /**
  * @brief Remove the last element of a vector
- * 
+ *
  * @param v the vector
  * @return ValidDataType the encapsulated popped element
  */
@@ -68,7 +68,7 @@ extern ValidDataType pop_back_vector(Vector *v);
 
 /**
  * @brief Search a value in a vector
- * 
+ *
  * @param v the vector
  * @param d the value to be searched
  * @param e the function to check if two elements are equal
@@ -78,7 +78,7 @@ extern int search_vector(Vector *v, DataType d, EqualType e);
 
 /**
  * @brief Get the address of an element of an vector
- * 
+ *
  * @param v the vector
  * @param k the index of the element
  * @return DataType* the address of the element
@@ -87,7 +87,7 @@ extern DataType *vector_at(Vector *v, int k);
 
 /**
  * @brief The number of elements of a vector
- * 
+ *
  * @param v the vector
  * @return int the number of elements
  */
@@ -95,7 +95,7 @@ extern int size_of_vector(Vector *v);
 
 /**
  * @brief Check if a vector is empty
- * 
+ *
  * @param v the vector
  * @return true is empty
  * @return false is not empty
@@ -104,7 +104,7 @@ extern bool is_vector_empty(Vector *v);
 
 /**
  * @brief Make a vector empty by erase all elements in it
- * 
+ *
  * @param v the vector
  * @return Vector* the empty vector
  */
@@ -112,7 +112,7 @@ extern Vector *make_vector_empty(Vector *v);
 
 /**
  * @brief Demo for the vector
- * 
+ *
  */
 extern void demo_vector();
 

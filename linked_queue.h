@@ -17,21 +17,21 @@ typedef struct {
 
 /**
  * @brief Create a linked queue
- * 
+ *
  * @return LinkedQueue* the created linked queue
  */
 extern LinkedQueue *create_linked_queue();
 
 /**
  * @brief Destroy a linked queue
- * 
+ *
  * @param s the linked queue to be destroyed
  */
 extern void destroy_linked_queue(LinkedQueue *s);
 
 /**
  * @brief Check if a linked queue is empty
- * 
+ *
  * @param s the linked queue
  * @return true is empty
  * @return false is not empty
@@ -40,7 +40,7 @@ extern bool empty_linked_queue(LinkedQueue *s);
 
 /**
  * @brief Push an element into the rear of a linked queue
- * 
+ *
  * @param s the linked queue
  * @param d the data to pushed into
  * @return true successfully pushed
@@ -50,7 +50,7 @@ extern bool push_linked_queue(LinkedQueue *s, DataType d);
 
 /**
  * @brief Pop the first element out of a linked queue
- * 
+ *
  * @param s the linked queue
  * @param d the data popped out
  * @return true successfully popped
@@ -60,7 +60,7 @@ extern bool pop_linked_queue(LinkedQueue *s, DataType *d);
 
 /**
  * @brief The demo of linked queue
- * 
+ *
  */
 extern void demo_linked_queue();
 

@@ -115,11 +115,16 @@ void demo_sequence_list() {
     printf("Index of 4: %d\n", search_sequence_list(s, array + 3, equal_ints));
     printf("Index of 5: %d\n", search_sequence_list(s, array + 4, equal_ints));
 
-    printf("Index of 1: %d\n", search_sequence_list_reversly(s, array + 0, equal_ints));
-    printf("Index of 2: %d\n", search_sequence_list_reversly(s, array + 1, equal_ints));
-    printf("Index of 3: %d\n", search_sequence_list_reversly(s, array + 2, equal_ints));
-    printf("Index of 4: %d\n", search_sequence_list_reversly(s, array + 3, equal_ints));
-    printf("Index of 5: %d\n", search_sequence_list_reversly(s, array + 4, equal_ints));
+    printf("Index of 1: %d\n",
+           search_sequence_list_reversly(s, array + 0, equal_ints));
+    printf("Index of 2: %d\n",
+           search_sequence_list_reversly(s, array + 1, equal_ints));
+    printf("Index of 3: %d\n",
+           search_sequence_list_reversly(s, array + 2, equal_ints));
+    printf("Index of 4: %d\n",
+           search_sequence_list_reversly(s, array + 3, equal_ints));
+    printf("Index of 5: %d\n",
+           search_sequence_list_reversly(s, array + 4, equal_ints));
 
     DataType d;
     remove_sequence_list(s, 3, &d);
