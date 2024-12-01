@@ -30,10 +30,14 @@ static bool wrong_remove_index(Vector *v, int k) {
 
 Vector *create_vector(int c) {
     Vector *v = malloc(sizeof(Vector));
-    if (v) {
-        v->size = 0;
-        v->capacity = c < 1 ? 1 : c;
-        v->data = malloc(sizeof(DataType) * v->capacity);
+    if (!v) return NULL;
+    
+    v->size = 0;
+    v->capacity = c < 1 ? 1 : c;
+    v->data = malloc(sizeof(DataType) * v->capacity);
+    if (!v->data) {
+        free(v);
+        return NULL;
     }
     return v;
 }
@@ -47,13 +51,10 @@ void destroy_vector(Vector *v) {
 
 static bool reallocate_vector(Vector *v, int c) {
     assert(v && c > 0);
-    DataType *new_data = malloc(sizeof(DataType) * c);
+    DataType *new_data = realloc(v->data, sizeof(DataType) * c);
     if (!new_data) {
-        printf("Memory allocation failed when growing or shrinking vector!\n");
         return false;
     }
-    memcpy(new_data, v->data, sizeof(DataType) * v->size);
-    free(v->data);
     v->data = new_data;
     v->capacity = c;
     return true;
@@ -64,7 +65,12 @@ static bool grow_vector(Vector *v) {
 }
 
 static bool shrink_vector(Vector *v) {
-    return reallocate_vector(v, (v->capacity + 1) >> 1);
+    if (!v || v->capacity <= 1) return false;
+    
+    int new_capacity = v->capacity / 2;
+    if (new_capacity < 1) new_capacity = 1;
+    
+    return reallocate_vector(v, new_capacity);
 }
 
 bool insert_vector_by_index(Vector *v, int k, DataType d) {

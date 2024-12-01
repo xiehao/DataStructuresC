@@ -9,7 +9,7 @@ typedef struct _tree Tree;
 
 extern Tree *create_tree();
 
-extern void destroy_tree();
+extern void destroy_tree(Tree *);
 
 extern TreeNode *attach_tree_node(TreeNode *p, TreeNode *n);
 

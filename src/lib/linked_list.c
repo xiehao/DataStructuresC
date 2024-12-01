@@ -86,7 +86,7 @@ bool cleanup_linked_list(LinkedList *s) {
         return false;
     }
     for (; s->head->next != NULL;) {
-        if (remove_front_linked_list(s, NULL)) {
+        if (!remove_front_linked_list(s, NULL)) {
             return false;
         }
     }
